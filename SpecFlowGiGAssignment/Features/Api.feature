@@ -1,12 +1,12 @@
 ﻿Feature: Task 1 – RESTful API tests
 ![APITesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
 
-	In order to fulfil task 1 of the GiG Assignment
-	As a SWD in Test
-	I *want* to assert the **successful registration** and **unsuccessful registration** flows.
+In order to fulfil task 1 of the GiG Assignment
+As a SWD in Test
+I *want* to assert the **successful registration** the **unsuccessful registration** and **list user** flows
 
-Link to a feature: [Api](SpecFlowGiGAssignment/Features/Api.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Api.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**
 
 @Registration_Test_1
 Scenario: Successful registration

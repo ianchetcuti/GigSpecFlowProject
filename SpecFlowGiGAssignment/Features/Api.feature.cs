@@ -21,12 +21,12 @@ namespace SpecFlowGiGAssignment.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [TechTalk.SpecRun.FeatureAttribute("Task 1 – RESTful API tests", Description=@"![APITesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
 
-	In order to fulfil task 1 of the GiG Assignment
-	As a SWD in Test
-	I *want* to assert the **successful registration** and **unsuccessful registration** flows.
+In order to fulfil task 1 of the GiG Assignment
+As a SWD in Test
+I *want* to assert the **successful registration** the **unsuccessful registration** and **list user** flows
 
-Link to a feature: [Api](SpecFlowGiGAssignment/Features/Api.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", SourceFile="Features\\Api.feature", SourceLine=0)]
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Api.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**", SourceFile="Features\\Api.feature", SourceLine=0)]
     public partial class Task1RESTfulAPITestsFeature
     {
         
@@ -43,12 +43,12 @@ Link to a feature: [Api](SpecFlowGiGAssignment/Features/Api.feature)
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Task 1 – RESTful API tests", @"![APITesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
 
-	In order to fulfil task 1 of the GiG Assignment
-	As a SWD in Test
-	I *want* to assert the **successful registration** and **unsuccessful registration** flows.
+In order to fulfil task 1 of the GiG Assignment
+As a SWD in Test
+I *want* to assert the **successful registration** the **unsuccessful registration** and **list user** flows
 
-Link to a feature: [Api](SpecFlowGiGAssignment/Features/Api.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", ProgrammingLanguage.CSharp, ((string[])(null)));
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Api.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
