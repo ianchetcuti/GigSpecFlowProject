@@ -4,6 +4,8 @@ using TechTalk.SpecFlow;
 using System;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace SpecFlowGiGAssignment.Steps
 {
@@ -13,19 +15,23 @@ namespace SpecFlowGiGAssignment.Steps
         private readonly ScenarioContext _scenarioContext;
 
         private readonly StreamUtils _streamUtils = new StreamUtils();
-        private List<Car> carList;
-        
+        private List<Car> carList = new List<Car>();
+
+        private IConfiguration config = new ConfigurationBuilder()
+          .SetBasePath(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()+ "\\SpecFlowGiGAssignment\\Configuration")
+          .AddJsonFile("AppSettings.json", false, true)
+          .Build();
+
         public StreamUtilsStepDefinitions(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
 
         }
+
         [BeforeScenario]
         public void RunBeforeScenario()
         {
-            Console.WriteLine("Initiating before method");
-
-            carList = new List<Car>();
+            
         }
 
         [Given(@"the Brand is a ""(.*)"" and the model is a ""(.*)"" and the number of doors are (.*) and it ""(.*)"" a sports car")]
@@ -49,23 +55,25 @@ namespace SpecFlowGiGAssignment.Steps
         public async System.Threading.Tasks.Task WhenTheCarMessagesArePublishedAsync()
         {
             JObject jObjectCar;
-            foreach(Car car in carList)
+            foreach (Car car in carList)
             {
                 jObjectCar = new JObject();
 
-                jObjectCar.Add("brandName",car.BrandName);
+                jObjectCar.Add("brandName", car.BrandName);
                 jObjectCar.Add("modelName", car.Model);
                 jObjectCar.Add("numberOfDoors", car.NumberOfDoors);
                 jObjectCar.Add("isASportsCar", car.IsSportsCar);
 
-                _ = await _streamUtils.publishKafkaMessageAsync("localhost:9092", "test", jObjectCar.ToString(Newtonsoft.Json.Formatting.None));
+                _ = await _streamUtils.publishKafkaMessageAsync(config["KafkaConfig:BootstrapServer"], config["KafkaConfig:Topic"], jObjectCar.ToString(Newtonsoft.Json.Formatting.None));
             }
         }
 
         [Then(@"the total consumed messages are (.*)")]
         public void ThenTheTotalConsumedMessagesAre(int p0)
         {
-            carList.Should().HaveCount(p0);
+            List<String> consumedMessages = _streamUtils.consumeKafkaMessages(config["KafkaConfig:BootstrapServer"], config["KafkaConfig:Topic"], Int32.Parse(config["KafkaConfig:StreamTimeout"]));
+
+            consumedMessages.Should().HaveCount(p0);
         }
     }
 }

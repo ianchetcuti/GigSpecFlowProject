@@ -1,5 +1,4 @@
 ﻿using Confluent.Kafka;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -32,7 +31,7 @@ namespace GigSpecFlowProject
             return $"Produced message '{dr.Value}' to topic {dr.Topic}, partition {dr.Partition}, offset {dr.Offset}";
         }
 
-        public List<string> consumeKafkaMessages(String kafkaURI, String topic)
+        public List<string> consumeKafkaMessages(String kafkaURI, String topic, int timeoutInMillis)
         {
             List<string> streamList = new List<string>();
 
@@ -47,10 +46,7 @@ namespace GigSpecFlowProject
             c.Subscribe(topic);
 
             var cts = new CancellationTokenSource();
-            Console.CancelKeyPress += (_, e) => {
-                e.Cancel = true;
-                cts.Cancel();
-            };
+            cts.CancelAfter(timeoutInMillis);
 
             try
             {
@@ -60,7 +56,6 @@ namespace GigSpecFlowProject
                     var cr = c.Consume(cts.Token);
                     c.Commit();
                     streamList.Add($"Consumed message '{cr.Value}' from topic {cr.Topic}, partition {cr.Partition}, offset {cr.Offset}");
-
                     // Do something interesting with the message you consumed
                 }
             }

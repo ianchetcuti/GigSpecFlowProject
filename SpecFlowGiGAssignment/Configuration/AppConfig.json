@@ -1,6 +1,0 @@
-{
-  "DockerConfig": {
-    "BootstrapServers": "localhost:9092",
-    "Topic": "Cars"
-  }
-}

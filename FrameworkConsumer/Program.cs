@@ -8,6 +8,7 @@ namespace FrameworkConsumer
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
+            /**
             //Console.WriteLine("Hello World!");
             RestUtils restUtils = new RestUtils();
 
@@ -32,6 +33,11 @@ namespace FrameworkConsumer
             RestResponse restResponse2 = await restUtils.SendRequestAsync(r2);
             Console.WriteLine(restResponse2.Payload.ToString());
 
+            **/
+
+            await publishMessageAsync();
+            await publishMessageAsync();
+            await publishMessageAsync();
             await publishMessageAsync();
 
             consumeMessages();
@@ -46,7 +52,7 @@ namespace FrameworkConsumer
 
         static void consumeMessages()
         {
-            foreach (String s in streamUtils.consumeKafkaMessages("localhost:9092","car"))
+            foreach (String s in streamUtils.consumeKafkaMessages("localhost:9092","car",3000))
             {
                Console.WriteLine(s);
             }
