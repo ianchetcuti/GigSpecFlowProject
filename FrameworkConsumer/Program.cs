@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using GigSpecFlowProject;
 
 namespace FrameworkConsumer
@@ -30,6 +31,25 @@ namespace FrameworkConsumer
 
             RestResponse restResponse2 = await restUtils.SendRequestAsync(r2);
             Console.WriteLine(restResponse2.Payload.ToString());
+
+            await publishMessageAsync();
+
+            consumeMessages();
+        }
+
+        private static StreamUtils streamUtils = new StreamUtils();
+
+        static async System.Threading.Tasks.Task publishMessageAsync()
+        {
+            Console.WriteLine(await streamUtils.publishKafkaMessageAsync("localhost:9092","car","testMessage"));
+        }
+
+        static void consumeMessages()
+        {
+            foreach (String s in streamUtils.consumeKafkaMessages("localhost:9092","car"))
+            {
+               Console.WriteLine(s);
+            }
         }
     }
 }
