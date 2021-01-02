@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationFrameworkAssignme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowGiGAssignment", "SpecFlowGiGAssignment\SpecFlowGiGAssignment.csproj", "{A075739A-0E3E-4653-AEFD-9E107ACA5618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameworkConsumer", "FrameworkConsumer\FrameworkConsumer.csproj", "{7D050645-952F-4AF3-8C23-CFD4D508A45E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrameworkConsumer", "FrameworkConsumer\FrameworkConsumer.csproj", "{7D050645-952F-4AF3-8C23-CFD4D508A45E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{051BBECB-197F-44E2-A320-6B5DE4B160FB}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
