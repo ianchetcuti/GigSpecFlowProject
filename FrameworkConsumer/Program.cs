@@ -52,7 +52,7 @@ namespace FrameworkConsumer
 
         static void consumeMessages()
         {
-            foreach (String s in streamUtils.consumeKafkaMessages("localhost:9092","car",3000))
+            foreach (String s in streamUtils.consumeKafkaMessages("localhost:9092","car",5000))
             {
                Console.WriteLine(s);
             }

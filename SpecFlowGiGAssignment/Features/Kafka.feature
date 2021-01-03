@@ -1,7 +1,12 @@
 ﻿Feature: Task 2 - Kafka Tests
-	In order to write something here
-	As a lazy bastard
-	I dont want to write anything
+![StreamTesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
+
+In order to fulfil task 2 of the GiG Assignment
+As a SWD in Test
+I *want* to be able to **publish kafka messages**, **consume kafka messages** and **assert that they both tally up*
+
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Kafka.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**
 
 @Test1_-_Happy_Path_1_Car
 Scenario: Produce 1 Message Of Type Car

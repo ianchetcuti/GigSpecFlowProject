@@ -3,6 +3,8 @@ using GigSpecFlowProject;
 using TechTalk.SpecFlow;
 using System;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace SpecFlowGiGAssignment.Steps
 {
@@ -10,22 +12,21 @@ namespace SpecFlowGiGAssignment.Steps
     public sealed class RestfulApiStepDefinitions
     {
         private readonly RestUtils _restUtils = new RestUtils();
-        private readonly ScenarioContext _scenarioContext;
         private RestRequest restRequest;
         private RestResponse restResponse = null;
-        private JObject payloadBuilder = new JObject();
-        
-        public RestfulApiStepDefinitions(ScenarioContext scenarioContext)
-        {
-            _scenarioContext = scenarioContext;
 
-        }
+        // Gets configuration from AppSettings.json file
+        private IConfiguration config = new ConfigurationBuilder()
+          .SetBasePath(Directory.GetParent(Directory.GetCurrentDirectory()).ToString() + "\\SpecFlowGiGAssignment\\Configuration")
+          .AddJsonFile("AppSettings.json", false, true)
+          .Build();
+
         [BeforeScenario]
         public void RunBeforeScenario()
         {
             Console.WriteLine("Initiating before method");
             restRequest = new RestRequest();
-            restRequest.Payload = new Newtonsoft.Json.Linq.JObject();
+            restRequest.Payload = new JObject();
             restResponse = new RestResponse();
         }
 
@@ -52,12 +53,11 @@ namespace SpecFlowGiGAssignment.Steps
         [Then(@"the response should be HTTP (.*) and a token")]
         public void ThenTheResponseShouldBeHTTPAndAToken(int p0)
         {
-            //ScenarioContext.Current.Pending();
             restResponse.HTTPCode.Should().Be(p0);
 
             JObject assertObject = new JObject();
-            assertObject.Add("id", 2);
-            assertObject.Add("token", "QpwL5tke4Pnpja7X2");
+            assertObject.Add("id", config["SpecFlowTestData:RegistrationTests:ReturnId"]);
+            assertObject.Add("token", config["SpecFlowTestData:RegistrationTests:TokenCode"]);
 
             restResponse.Payload.Should().BeEquivalentTo(assertObject);
         }

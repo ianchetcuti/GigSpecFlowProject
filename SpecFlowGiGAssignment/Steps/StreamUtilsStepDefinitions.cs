@@ -12,27 +12,14 @@ namespace SpecFlowGiGAssignment.Steps
     [Binding]
     public sealed class StreamUtilsStepDefinitions
     {
-        private readonly ScenarioContext _scenarioContext;
-
         private readonly StreamUtils _streamUtils = new StreamUtils();
         private List<Car> carList = new List<Car>();
 
+        // Gets configuration from AppSettings.json file
         private IConfiguration config = new ConfigurationBuilder()
           .SetBasePath(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()+ "\\SpecFlowGiGAssignment\\Configuration")
           .AddJsonFile("AppSettings.json", false, true)
           .Build();
-
-        public StreamUtilsStepDefinitions(ScenarioContext scenarioContext)
-        {
-            _scenarioContext = scenarioContext;
-
-        }
-
-        [BeforeScenario]
-        public void RunBeforeScenario()
-        {
-            
-        }
 
         [Given(@"the Brand is a ""(.*)"" and the model is a ""(.*)"" and the number of doors are (.*) and it ""(.*)"" a sports car")]
         public void GivenTheBrandIsAndTheModelIsAndTheNumberOfDoorsAreAndItASportsCar(string p0, string p1, int p2, string p3)

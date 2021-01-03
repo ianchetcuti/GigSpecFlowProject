@@ -11,6 +11,11 @@ namespace GigSpecFlowProject
         private static HttpClient client = new HttpClient();
         private RestResponse restResponse;
         
+        /// <summary>
+        /// Helper method to simplify basic REST calls. Supports POST and GET verbs.
+        /// </summary>
+        /// <param name="restRequest">Rest request object</param>
+        /// <returns></returns>
         public async System.Threading.Tasks.Task<RestResponse> SendRequestAsync(RestRequest restRequest)
         {
             HttpResponseMessage response = null;
@@ -37,7 +42,7 @@ namespace GigSpecFlowProject
                 restResponse.HTTPCode = (int)response.StatusCode;
                 restResponse.Payload = JObject.Parse(await response.Content.ReadAsStringAsync());
             }
-            else { throw new Exception("Unsupported operation requested"); }
+            else { throw new Exception("Unsupported operation/verb requested"); }
 
             return restResponse;
         }

@@ -19,8 +19,14 @@ namespace SpecFlowGiGAssignment.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.5.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Task 2 - Kafka Tests", Description="\tIn order to write something here\r\n\tAs a lazy bastard\r\n\tI dont want to write anyt" +
-        "hing", SourceFile="Features\\Kafka.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Task 2 - Kafka Tests", Description=@"![StreamTesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
+
+In order to fulfil task 2 of the GiG Assignment
+As a SWD in Test
+I *want* to be able to **publish kafka messages**, **consume kafka messages** and **assert that they both tally up*
+
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Kafka.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**", SourceFile="Features\\Kafka.feature", SourceLine=0)]
     public partial class Task2_KafkaTestsFeature
     {
         
@@ -35,8 +41,14 @@ namespace SpecFlowGiGAssignment.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Task 2 - Kafka Tests", "\tIn order to write something here\r\n\tAs a lazy bastard\r\n\tI dont want to write anyt" +
-                    "hing", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Task 2 - Kafka Tests", @"![StreamTesting](https://www.gig.com/wp-content/themes/gig.com-child/assets/images/logo.svg)
+
+In order to fulfil task 2 of the GiG Assignment
+As a SWD in Test
+I *want* to be able to **publish kafka messages**, **consume kafka messages** and **assert that they both tally up*
+
+Link to a feature: [Api](https://github.com/ianchetcuti/GigSpecFlowProject/blob/master/SpecFlowGiGAssignment/Features/Kafka.feature)
+***Github Repo***: **[Learn more](https://github.com/ianchetcuti/GigSpecFlowProject)**", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,14 +85,14 @@ namespace SpecFlowGiGAssignment.Features
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Produce 1 Message Of Type Car", new string[] {
-                "Test1_-_Happy_Path_1_Car"}, SourceLine=6)]
+                "Test1_-_Happy_Path_1_Car"}, SourceLine=11)]
         public virtual void Produce1MessageOfTypeCar()
         {
             string[] tagsOfScenario = new string[] {
                     "Test1_-_Happy_Path_1_Car"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Produce 1 Message Of Type Car", null, tagsOfScenario, argumentsOfScenario);
-#line 7
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -100,14 +112,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 13
  testRunner.Given("the Brand is a \"Toyota\" and the model is a \"Celica\" and the number of doors are 2" +
                         " and it \"is\" a sports car", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 9
+#line 14
  testRunner.When("the car messages are published", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 10
+#line 15
  testRunner.Then("the total consumed messages are 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -115,14 +127,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Produce 3 Messages Of Type Car", new string[] {
-                "Test2_-_Happy_Path_Multiple_Cars"}, SourceLine=12)]
+                "Test2_-_Happy_Path_Multiple_Cars"}, SourceLine=17)]
         public virtual void Produce3MessagesOfTypeCar()
         {
             string[] tagsOfScenario = new string[] {
                     "Test2_-_Happy_Path_Multiple_Cars"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Produce 3 Messages Of Type Car", null, tagsOfScenario, argumentsOfScenario);
-#line 13
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -142,22 +154,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 14
+#line 19
  testRunner.Given("the Brand is a \"Mitsubishi\" and the model is a \"3000GT\" and the number of doors a" +
                         "re 2 and it \"is\" a sports car", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 15
+#line 20
  testRunner.And("the Brand is a \"Honda\" and the model is a \"Civic\" and the number of doors are 2 a" +
                         "nd it \"isnt\" a sports car", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 16
+#line 21
  testRunner.And("the Brand is a \"Renault\" and the model is a \"2cv\" and the number of doors are 4 a" +
                         "nd it \"isnt\" a sports car", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 17
+#line 22
  testRunner.When("the car messages are published", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 23
  testRunner.Then("the total consumed messages are 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
